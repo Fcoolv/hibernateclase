@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Pagina Principal</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to.fit=no">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style type="text/css">
+#logo{
+ width: 100px;
+ height: 50px;
+}
+</style>
+</head>
+<body background="images/fondomenu.jpg">
+<nav class="navbar navbar-expand-md navbar-black fixed-top bg-light">
+		<a class="navbar-brand" href="#"><img id="logo" src="images/herogaminglogo_black.png"></a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarExample" aria-controls="navbarExample"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarExample">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					href="menu.html">Inicio</a></li>
+				<li class="nav-item"><a class="nav-link" href="#miCarousel">Carrusel</a></li>
+				<li class="nav-item"><a class="nav-link" href="#articulos">Artículos</a></li>
+				<li class="nav-item"><a class="nav-link" href="#tablas">Tablas</a></li>
+			</ul>
+		</div>
+	</nav>
+<div class="jumbotron mt-5">
+		<div class="container">
+			<h1 id="saludo"></h1>
+			<p>La mejor pagina de videojuegos en andalucia.</p>
+		</div>
+	</div>
+<div class="container">
+<div id="miCarousel" class="carousel slide" data-ride="carousel">
+
+  <ol class="carousel-indicators">
+    <li data-target="#miCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#miCarousel" data-slide-to="1"></li>
+    <li data-target="#miCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active letra">
+      <img class="d-block img-fluid" src="images/mariovssonic.jpg" alt="Sonic vs Mario">
+      <div class="carousel-caption d-none d-md-block">">
+        <h3>Sonic vs Mario: ¿Cual sera el mejor juego este año?</h3>
+        <p>La cercana salida de Super Mario Odyssey y Sonic forces.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item letra">
+      <img class="d-block img-fluid" src="images/original.png" alt="BetaBFT2">
+      <div class="carousel-caption d-none d-md-block">">
+        <h3>Beta publica de Star Wars Battlefront 2</h3>
+        <p>La beta de SWBTF2, Comienza hoy.</p>
+      </div>
+    </div>
+
+    <div class="carousel-item letra">
+      <img class="d-block img-fluid" src="images/world.png" alt="mundialeslol">
+      <div class="carousel-caption d-none d-md-block">">
+        <h3>Los mundiales de League of Legend han empezado</h3>
+        <p>El primer dia de los mundiales ha comenzado fuerte con los equipos coreanos.</p>
+      </div>
+    </div>
+  </div>
+
+ 
+  <a class="carousel-control-prev" href="#miCarousel" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#miCarousel" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+<div class=container>
+<table class="table" id="tablas">
+  <thead class="thead-default">
+    <tr>
+      <th>Fecha de lanzamiento</th>
+      <th>Juego</th>
+      <th>Distribuidora</th>
+      <th>Plataformas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">26/1/2018</th>
+      <td>Monster Hunter World</td>
+      <td>Capcom</td>
+      <td>PS4,XBOX ONE,PC</td>
+    </tr>
+    <tr>
+      <th scope="row">7/11/2017</th>
+      <td>Sonic Forces</td>
+      <td>SEGA</td>
+      <td>PC,PS4,XBOX ONE,Switch</td>
+    </tr>
+    <tr>
+      <th scope="row">27/10/2017</th>
+      <td>Super Mario Odissey</td>
+      <td>Nintendo</td>
+      <td>Nintendo Switch</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<script src="js/jquery-3.2.1.slim.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/sesiones.js"></script>
+</body>
+</html>
