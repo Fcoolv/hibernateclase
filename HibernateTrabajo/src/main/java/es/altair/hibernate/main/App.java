@@ -18,6 +18,7 @@ public class App
         	
         	switch(opcion) {
         	case 1:
+        	do {
         		do {
         			hayError = false;
                     System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
@@ -34,14 +35,8 @@ public class App
                     System.out.println("\t\t\t\t║ 0. VOLVER                                     ║");
                     System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
                 System.out.print("Opcion a escoger: ");
-                try {
-                opcion1=sc.nextInt();
-                }catch (Exception e) {
-        			System.out.println("No has introducido un numero.");
-        			hayError = true;
-        		}if(hayError) {
-        			return;
-        		}else {
+                opcion1=Leer.datoInt();
+    			}while(opcion1<0||opcion1>4);
         			switch(opcion1) {
         			case 1:
         				
@@ -56,7 +51,152 @@ public class App
         				
         				break;
         				}
-        		}
+        		
+        		}while(opcion1!=0);
+        		break;
+        	case 2:
+        	   do {
+        		 do {
+        			hayError = false;
+                    System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
+                    System.out.println("\t\t\t\t║                    Jugadores                  ║");
+                    System.out.println("\t\t\t\t╠═══════════════════════════════════════════════╣");
+                    System.out.println("\t\t\t\t║ 1. AÑADIR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 2. EDITAR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 3. BORRAR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 4. LISTAR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 0. VOLVER                                     ║");
+                    System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
+                    System.out.print("Opcion a escoger: ");
+                opcion1=Leer.datoInt();
+    			}while(opcion1<0||opcion1>4);
+        			switch(opcion1) {
+        			case 1:
+        				
+        				break;
+        			case 2:
+        				
+        				break;
+        			case 3:
+        				
+        				break;
+        			case 4:
+        				
+        				break;
+        				}
+        		
+        		}while(opcion1!=0);
+        		break;
+        	case 3:
+        		do {
+        		 do {
+        			hayError = false;
+                    System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
+                    System.out.println("\t\t\t\t║                      Juegos                   ║");
+                    System.out.println("\t\t\t\t╠═══════════════════════════════════════════════╣");
+                    System.out.println("\t\t\t\t║ 1. AÑADIR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 2. EDITAR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 3. BORRAR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 4. LISTAR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 0. VOLVER                                     ║");
+                    System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
+                System.out.print("Opcion a escoger: ");
+                	opcion1=Leer.datoInt();
+    			}while(opcion1<0||opcion1>4);
+        			switch(opcion1) {
+        			case 1:
+        				
+        				break;
+        			case 2:
+        				
+        				break;
+        			case 3:
+        				
+        				break;
+        			case 4:
+        				
+        				break;
+        				}
+        		
+        		}while(opcion1!=0);
+        		break;
+        	case 4:
+        		do {
+        		 do {
+        			hayError = false;
+                    System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
+                    System.out.println("\t\t\t\t║              Tipos de Juegos                  ║");
+                    System.out.println("\t\t\t\t╠═══════════════════════════════════════════════╣");
+                    System.out.println("\t\t\t\t║ 1. AÑADIR TIPO                                ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 2. EDITAR TIPO                                ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 3. BORRAR TIPO                                ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 4. LISTAR TIPO                                ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 0. VOLVER                                     ║");
+                    System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
+                System.out.print("Opcion a escoger: ");
+                opcion1=Leer.datoInt();
+    			}while(opcion1<0||opcion1>4);
+        			switch(opcion1) {
+        			case 1:
+        				
+        				break;
+        			case 2:
+        				
+        				break;
+        			case 3:
+        				
+        				break;
+        			case 4:
+        				
+        				break;
+        			}
+        		}while(opcion1!=0);
+        		break;
+        	case 5:
+        		do {
+        		 do {
+                    System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
+                    System.out.println("\t\t\t\t║              Equipos en juegos                ║");
+                    System.out.println("\t\t\t\t╠═══════════════════════════════════════════════╣");
+                    System.out.println("\t\t\t\t║ 1. AÑADIR Conjunto                            ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 2. EDITAR Conjunto                            ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 3. BORRAR Conjunto                            ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 4. LISTAR Conjunto                            ║");
+                    System.out.println("\t\t\t\t║                                               ║");
+                    System.out.println("\t\t\t\t║ 0. VOLVER                                     ║");
+                    System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
+                    System.out.print("Opcion a escoger: ");
+                    opcion1=Leer.datoInt();
+        			}while(opcion1<0||opcion1>4);
+        			switch(opcion1) {
+        			case 1:
+        				
+        				break;
+        			case 2:
+        				
+        				break;
+        			case 3:
+        				
+        				break;
+        			case 4:
+        				
+        				break;
+        				}
         		}while(opcion1!=0);
         		break;
         	}

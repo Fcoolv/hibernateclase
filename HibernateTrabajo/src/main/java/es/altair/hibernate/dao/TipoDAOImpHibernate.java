@@ -7,21 +7,21 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import es.altair.hibernate.bean.Equipos;
 
+import es.altair.hibernate.bean.TiposJuego;
 
-public class EquipoDAOImpHibernate implements EquipoDAO {
+public class TipoDAOImpHibernate implements TipoDAO {
 
-	public void save(Equipos e) {
+	public void save(TiposJuego t) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session sesion = sf.openSession();
 		
 		try {
 			sesion.beginTransaction();
-			sesion.save(e);
+			sesion.save(t);
 			sesion.getTransaction().commit();
-		} catch (Exception ex) {
-			ex.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
 		} finally {
 			sesion.close();
 			sf.close();
@@ -29,17 +29,17 @@ public class EquipoDAOImpHibernate implements EquipoDAO {
 
 	}
 
-	public List<Equipos> listar() {
+	public List<TiposJuego> listar() {
 		
 		System.out.println("-----LISTADO DE EQUIPOS----");
-		List<Equipos> equipos = new ArrayList<Equipos>();
+		List<TiposJuego> equipos = new ArrayList<TiposJuego>();
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session sesion = sf.openSession();
 
 		try {
 
 			sesion.beginTransaction();
-			equipos = sesion.createQuery("FROM Equipos").list();
+			equipos = sesion.createQuery("FROM TiposJuego").list();
 			sesion.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -59,21 +59,21 @@ public class EquipoDAOImpHibernate implements EquipoDAO {
 		
 		try {
 			sesion.beginTransaction();
-			sesion.createSQLQuery("DELETE FROM equipos WHERE idEquipo=:id").setParameter("id",id);
+			sesion.createSQLQuery("DELETE FROM tiposJuego WHERE idTipo=:id").setParameter("id",id);
 		}catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("Error: No se pudo borrar el equipo.");
+			System.out.println("Error: No se pudo borrar el tipo de juego.");
 			return false;
 		}finally {
 			sesion.close();
 			sf.close();
 		}
-		System.out.println("Se borro el equipo seleccionado.");
+		System.out.println("Se borro el tipo de juego seleccionado.");
 		return true;
 
 	}
 
-	public boolean update(Equipos e) {
+	public boolean update(TiposJuego t) {
 
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session sesion = sf.openSession();
@@ -81,18 +81,20 @@ public class EquipoDAOImpHibernate implements EquipoDAO {
 		try {
 
 			sesion.beginTransaction();
-			sesion.update(e);
+			sesion.update(t);
 			sesion.getTransaction().commit();
 
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			System.out.println("Error: No se pudo actualizar el Equipo.");
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("Error: No se pudo actualizar el tipo de juego.");
 			return false;
 		} finally {
 			sesion.close();
 			sf.close();
 		}
-		System.out.println("Se actualizo el equipo seleccionado.");
+		System.out.println("Se actualizo el tipo de juego seleccionado.");
 		return true;
 	}
+
+
 }

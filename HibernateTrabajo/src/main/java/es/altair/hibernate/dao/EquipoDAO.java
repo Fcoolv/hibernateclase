@@ -8,8 +8,9 @@ public interface EquipoDAO {
 
 	public void save(Equipos e);
 	
-	public void delete(int id);
+	public boolean delete(int id);
 	
+	public boolean update(Equipos e);
 	
 	public List<Equipos> listar();
 }
