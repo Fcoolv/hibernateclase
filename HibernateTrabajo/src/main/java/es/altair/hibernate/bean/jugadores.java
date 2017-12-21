@@ -6,6 +6,8 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -21,9 +23,9 @@ public class jugadores implements Serializable{
 	private String apellidos;
 	private String nickname;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private Equipos idEquipo;
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idEquipo")
+	private Equipos equipo;
 	
 	public jugadores() {
 		// TODO Auto-generated constructor stub
@@ -62,11 +64,11 @@ public class jugadores implements Serializable{
 	}
 
 	public Equipos getIdEquipo() {
-		return idEquipo;
+		return equipo;
 	}
 
-	public void setIdEquipo(Equipos idEquipo) {
-		this.idEquipo = idEquipo;
+	public void setIdEquipo(Equipos equipo) {
+		this.equipo = equipo;
 	}
 
 	public jugadores(String nombre, String apellidos, String nickname, Equipos idEquipo) {
@@ -74,13 +76,13 @@ public class jugadores implements Serializable{
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.nickname = nickname;
-		this.idEquipo = idEquipo;
+		this.equipo = idEquipo;
 	}
 
 	@Override
 	public String toString() {
 		return "jugadores [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nickname=" + nickname
-				+ ", idEquipo=" + idEquipo + "]";
+				+ ", equipo=" + equipo + "]";
 	}
 
 	

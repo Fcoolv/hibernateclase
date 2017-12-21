@@ -12,6 +12,14 @@ public class Artista {
 
 	
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -58,13 +66,18 @@ public class Artista {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Artista(String nombre, String apellidos, String edad, String pais, int idEstilo) {
+	public Artista(int id, String nombre, String apellidos, String edad, String pais, int idEstilo) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.edad = edad;
 		this.pais = pais;
 		this.idEstilo = idEstilo;
+	}
+	public Artista(int id) {
+		super();
+		this.id = id;
 	}
 
 	@Override

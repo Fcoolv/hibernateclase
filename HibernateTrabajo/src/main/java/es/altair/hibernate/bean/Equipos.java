@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,9 +25,13 @@ public class Equipos implements Serializable{
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(name="equipojuegos",
 	           joinColumns = {@JoinColumn(name="idEquipo")},
-	           inverseJoinColumns = {@JoinColumn(name="idJuego")})
+	           inverseJoinColumns = {@JoinColumn(name="idJuego")}
+	)
 	private Set<Juegos> juegos = new HashSet<Juegos>();
 
+	@OneToMany(mappedBy="equipo", cascade=CascadeType.ALL)
+	private Set<jugadores> jugadores;
+	
 	public Equipos() {
 		// TODO Auto-generated constructor stub
 	}

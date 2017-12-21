@@ -1,16 +1,34 @@
 package es.altair.hibernate.bean;
 
 import java.io.Serializable;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="tiposjuego")
 public class TiposJuego implements Serializable{
 
-	private int id;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int idTipo;
 	private String nombreTipo;
-	public int getId() {
-		return id;
+	
+	@OneToMany(mappedBy="tipo", cascade=CascadeType.ALL)
+	private Set<Juegos> juegos;
+	
+	
+	public int getidTipo() {
+		return idTipo;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int idTipo) {
+		this.idTipo = idTipo;
 	}
 	public String getNombreTipo() {
 		return nombreTipo;
@@ -18,14 +36,17 @@ public class TiposJuego implements Serializable{
 	public void setNombreTipo(String nombreTipo) {
 		this.nombreTipo = nombreTipo;
 	}
-	public TiposJuego(int id, String nombreTipo) {
+	public TiposJuego(int idTipo, String nombreTipo) {
 		super();
-		this.id = id;
+		this.idTipo = idTipo;
 		this.nombreTipo = nombreTipo;
+	}
+	public TiposJuego() {
+		// TODO Auto-generated constructor stub
 	}
 	@Override
 	public String toString() {
-		return "TiposJuego [id=" + id + ", nombreTipo=" + nombreTipo + "]";
+		return "TiposJuego [idTipo=" + idTipo + ", nombreTipo=" + nombreTipo + "]";
 	}
 	
 	

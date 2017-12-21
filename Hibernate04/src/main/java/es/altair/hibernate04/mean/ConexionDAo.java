@@ -10,7 +10,7 @@ public class ConexionDAo {
 	public static void abrirConexion() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/canciones?serverTimezone=UTC&autoReconnect=true&useSSL=false","root","Poderoso90@@");
+			conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/musica?serverTimezone=UTC&autoReconnect=true&useSSL=false","root","Poderoso90@@");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

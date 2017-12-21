@@ -7,9 +7,9 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -19,9 +19,10 @@ public class Juegos implements Serializable{
 	@Id
 	private int id;
 	private String Nombre;
-	@ManyToOne(cascade=CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private TiposJuego idTipo;
+	
+	@ManyToOne
+	@JoinColumn(name="idtipo")
+	private TiposJuego tipo;
 	
 	private int anyoCreacion;
 	private String Compayia;
@@ -45,13 +46,6 @@ public class Juegos implements Serializable{
 		Nombre = nombre;
 	}
 
-	public TiposJuego getIdTipo() {
-		return idTipo;
-	}
-
-	public void setIdTipo(TiposJuego idTipo) {
-		this.idTipo = idTipo;
-	}
 
 	public int getAnyoCreacion() {
 		return anyoCreacion;
@@ -77,18 +71,18 @@ public class Juegos implements Serializable{
 		this.equipos = equipos;
 	}
 
-	public Juegos(int id, String nombre, TiposJuego idTipo, int anyoCreacion, String compayia) {
+	public Juegos(int id, String nombre, TiposJuego Tipo ,int anyoCreacion, String compayia) {
 		super();
 		this.id = id;
-		Nombre = nombre;
-		this.idTipo = idTipo;
+		this.Nombre = nombre;
+		this.tipo = Tipo;
 		this.anyoCreacion = anyoCreacion;
-		Compayia = compayia;
+		this.Compayia = compayia;
 	}
 
 	@Override
 	public String toString() {
-		return "Juegos [id=" + id + ", Nombre=" + Nombre + ", idTipo=" + idTipo + ", anyoCreacion=" + anyoCreacion
+		return "Juegos [id=" + id + ", Nombre=" + Nombre + ", Tipo=" + tipo.getNombreTipo() + ", anyoCreacion=" + anyoCreacion
 				+ ", Compayia=" + Compayia + "]";
 	}
 	
