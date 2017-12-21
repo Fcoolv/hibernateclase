@@ -7,6 +7,7 @@ import es.altair.hibernate.util.Leer;
 public class App 
 {   
 	private static Scanner sc = new Scanner(System.in);
+	
     public static void main( String[] args )
     {
     	int opcion=0;
@@ -39,7 +40,11 @@ public class App
     			}while(opcion1<0||opcion1>4);
         			switch(opcion1) {
         			case 1:
-        				
+        			
+		List<Equipo> equipod = eDAO.listar();
+		for (Usuario item : equipos) {
+			System.out.println(item);
+		}
         				break;
         			case 2:
         				
