@@ -7,7 +7,10 @@ import es.altair.hibernate.util.Leer;
 public class App 
 {   
 	private static Scanner sc = new Scanner(System.in);
-	
+	private static EquipoDAO eDAO = new EquipoDAOImpHibernate();
+	private static JuegosDAO jDAO = new JuegosDAOImpHibernate();
+	private static jugadoresDAO juDAO = new jugadoresDAOImpHibernate();
+	private static TipoDAO tDAO = new TipoDAOImpHibernate();
     public static void main( String[] args )
     {
     	int opcion=0;
