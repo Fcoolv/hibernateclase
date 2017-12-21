@@ -69,13 +69,13 @@ public class App
                     System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
                     System.out.println("\t\t\t\t║                    Jugadores                  ║");
                     System.out.println("\t\t\t\t╠═══════════════════════════════════════════════╣");
-                    System.out.println("\t\t\t\t║ 1. AÑADIR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║ 1. AÑADIR JUGADORES                           ║");
                     System.out.println("\t\t\t\t║                                               ║");
-                    System.out.println("\t\t\t\t║ 2. EDITAR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║ 2. EDITAR JUGADORES                           ║");
                     System.out.println("\t\t\t\t║                                               ║");
-                    System.out.println("\t\t\t\t║ 3. BORRAR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║ 3. BORRAR JUGADORES                           ║");
                     System.out.println("\t\t\t\t║                                               ║");
-                    System.out.println("\t\t\t\t║ 4. LISTAR EQUIPO                              ║");
+                    System.out.println("\t\t\t\t║ 4. LISTAR JUGADORES                           ║");
                     System.out.println("\t\t\t\t║                                               ║");
                     System.out.println("\t\t\t\t║ 0. VOLVER                                     ║");
                     System.out.println("\t\t\t\t║═══════════════════════════════════════════════║");
