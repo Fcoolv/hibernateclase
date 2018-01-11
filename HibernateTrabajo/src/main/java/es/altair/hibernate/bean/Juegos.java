@@ -24,7 +24,7 @@ public class Juegos implements Serializable{
 	@JoinColumn(name="idtipo")
 	private TiposJuego tipo;
 	
-	private int anyoCreacion;
+	private String anyoCreacion;
 	private String Compayia;
 	
 	@ManyToMany(cascade=CascadeType.ALL,mappedBy="juegos")
@@ -47,11 +47,11 @@ public class Juegos implements Serializable{
 	}
 
 
-	public int getAnyoCreacion() {
+	public String getAnyoCreacion() {
 		return anyoCreacion;
 	}
 
-	public void setAnyoCreacion(int anyoCreacion) {
+	public void setAnyoCreacion(String anyoCreacion) {
 		this.anyoCreacion = anyoCreacion;
 	}
 
@@ -75,13 +75,14 @@ public class Juegos implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Juegos(int idJuegos, String compayia , String nombre,int anyoCreacion,TiposJuego Tipo) {
+	public Juegos(int idJuegos, String compayia , String nombre,String anyoCreacion,TiposJuego Tipo) {
 		super();
 		this.idJuegos = idJuegos;
-		this.Compayia = compayia;
 		this.Nombre = nombre;
-		this.anyoCreacion = anyoCreacion;
 		this.tipo = Tipo;
+		this.Compayia = compayia;
+		this.anyoCreacion = anyoCreacion;
+		
 		
 		
 	}

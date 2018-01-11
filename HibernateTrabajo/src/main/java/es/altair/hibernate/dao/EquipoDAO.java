@@ -8,6 +8,8 @@ public interface EquipoDAO {
 
 	public void save(Equipos e);
 	
+	public Equipos get(int id);
+	
 	public boolean delete(int id);
 	
 	public boolean update(Equipos e);

@@ -57,11 +57,10 @@ public class App
     			}while(opcion1<0||opcion1>4);
         			switch(opcion1) {
         			case 1:			
-        				
-		             
+        				eDAO.save(nuevoEquipo());
         				break;
         			case 2:
-        				
+        				editEquipo();
         				break;
         			case 3:
         				muestraEquipos();
@@ -218,6 +217,93 @@ public class App
 		}while(opcion<0||opcion>5);
 		return opcion;
 	}
+    private static Equipos nuevoEquipo() {
+    	Equipos equipo = new Equipos();
+    	boolean validacion = false;
+    	
+    	System.out.println("añadir Equipo");
+		System.out.println();
+
+		do {
+			System.out.println("Introducir nombre Del Equipo");
+			equipo.setNombre(Leer.dato().trim());
+			validacion = Pattern.matches("[A-Za-z]+", equipo.getNombre());
+		} while (validacion == false);
+		do {
+			System.out.println("Introducir pais Del Equipo");
+			equipo.setPais(Leer.dato().trim());
+			validacion = Pattern.matches("[A-Za-z]+", equipo.getPais());
+		} while (validacion == false);
+		
+    	return equipo;
+    }
+    private static Juegos nuevoJuego() {
+    	Juegos juego = new Juegos();
+    	boolean validacion = false;
+    	
+    	System.out.println("añadir Juego");
+		System.out.println();
+
+		do {
+			System.out.println("Introducir nombre Del Equipo");
+			juego.setNombre(Leer.dato().trim());
+			validacion = Pattern.matches("[A-Za-z]+", juego.getNombre());
+		} while (validacion == false);
+		
+		muestratipos();
+		System.out.println("Selecciona un tipo");
+		juego.setIdJuegos(Leer.datoInt());
+		
+		do {
+			System.out.println("Introducir año de salida Del juego");
+			juego.setAnyoCreacion(Leer.dato());
+			validacion = Pattern.matches("[0-9]+", juego.getAnyoCreacion());
+		} while (validacion == false);
+		
+		do {
+			System.out.println("Introducir empresa creadora Del juego");
+			juego.setCompayia(Leer.dato());
+			validacion = Pattern.matches("[A-Za-z]+", juego.getCompayia());
+		} while (validacion == false);
+		
+    	return juego;
+    }
+    private static void editEquipo() {
+    	Equipos equipo = new Equipos();
+    	int id;
+    	boolean validacion = false;
+    	String cambio;
+    	muestraEquipos();
+    	System.out.println("Dime la id del Equipo que quieres editar: ");
+    	id = Leer.datoInt();
+    	equipo.setId(id);
+    	do {
+			System.out.println("Introducir nuevo nombre del equipo o pulsa intro para no cambiarlo");
+			cambio = Leer.dato().trim();
+			if(cambio.isEmpty()) {
+				validacion = true;
+				equipo.setNombre(eDAO.get(id).getNombre());
+			}
+			else {
+			equipo.setNombre(cambio);
+			validacion = Pattern.matches("[A-Za-z]+", equipo.getNombre());
+			}
+		} while (validacion == false);
+    	do {
+			System.out.println("Introducir nuevo pais del equipo o pulsa intro para no cambiarlo");
+			cambio = Leer.dato().trim();
+			if(cambio.isEmpty()) {
+				validacion = true;
+				equipo.setPais(eDAO.get(id).getPais());
+			}else {
+			equipo.setPais(cambio);
+			validacion = Pattern.matches("[A-Za-z]+", equipo.getPais());
+			}
+		} while (validacion == false);
+    	
+    	eDAO.update(equipo);
+    	
+    }
     private static void muestraEquipos() {
     	List<Equipos> equipos = eDAO.listar();
 		for (Equipos item : equipos) {

@@ -95,4 +95,28 @@ public class EquipoDAOImpHibernate implements EquipoDAO {
 		System.out.println("Se actualizo el equipo seleccionado.");
 		return true;
 	}
+
+	public Equipos get(int id) {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session sesion = sf.openSession();
+		Equipos Equipo = new Equipos();
+		
+		
+		try {
+
+			sesion.beginTransaction();
+			
+			Equipo = (Equipos)sesion.createQuery("From Equipos Where id = :id").setParameter("id", id).uniqueResult();
+			
+			sesion.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sesion.close();
+		}
+				
+		return Equipo;
+	}
+	
 }
