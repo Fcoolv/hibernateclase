@@ -30,15 +30,15 @@ public class JuegosDAOImpHibernate implements JuegosDAO {
 
 	public List<Juegos> listar() {
 		
-		System.out.println("-----LISTADO DE EQUIPOS----");
-		List<Juegos> equipos = new ArrayList<Juegos>();
+		System.out.println("-----LISTADO DE JUEGOS----");
+		List<Juegos> juegos = new ArrayList<Juegos>();
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session sesion = sf.openSession();
 
 		try {
 
 			sesion.beginTransaction();
-			equipos = sesion.createQuery("FROM Juegos").list();
+			juegos = sesion.createQuery("From Juegos").list();
 			sesion.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -47,7 +47,7 @@ public class JuegosDAOImpHibernate implements JuegosDAO {
 			sesion.close();
 		}
 
-		return equipos;
+		return juegos;
 
 	}
 	
@@ -58,7 +58,7 @@ public class JuegosDAOImpHibernate implements JuegosDAO {
 		
 		try {
 			sesion.beginTransaction();
-			sesion.createSQLQuery("DELETE FROM juegos WHERE idJuego=:id").setParameter("id",id);
+			sesion.createSQLQuery("DELETE FROM juegos WHERE idjuego=:id").setParameter("id",id).executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error: No se pudo borrar el juego.");

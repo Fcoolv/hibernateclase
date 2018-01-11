@@ -30,15 +30,15 @@ public class JugadoresDAOImpHibernate implements JugadoresDAO {
 
 	public List<jugadores> listar() {
 		
-		System.out.println("-----LISTADO DE EQUIPOS----");
-		List<jugadores> equipos = new ArrayList<jugadores>();
+		System.out.println("-----LISTADO DE Jugadores----");
+		List<jugadores> jugadores = new ArrayList<jugadores>();
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session sesion = sf.openSession();
 
 		try {
 
 			sesion.beginTransaction();
-			equipos = sesion.createQuery("FROM Juegos").list();
+			jugadores = sesion.createQuery("FROM jugadores").list();
 			sesion.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -47,7 +47,7 @@ public class JugadoresDAOImpHibernate implements JugadoresDAO {
 			sesion.close();
 		}
 
-		return equipos;
+		return jugadores;
 
 	}
 	
@@ -58,7 +58,7 @@ public class JugadoresDAOImpHibernate implements JugadoresDAO {
 		
 		try {
 			sesion.beginTransaction();
-			sesion.createSQLQuery("DELETE FROM jugador WHERE idJugador=:id").setParameter("id",id);
+			sesion.createSQLQuery("DELETE FROM jugadores WHERE id=:id").setParameter("id",id).executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error: No se pudo borrar el jugador.");

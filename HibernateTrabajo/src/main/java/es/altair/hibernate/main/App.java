@@ -5,7 +5,9 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 import es.altair.hibernate.bean.Equipos;
+import es.altair.hibernate.bean.Juegos;
 import es.altair.hibernate.bean.TiposJuego;
+import es.altair.hibernate.bean.jugadores;
 import es.altair.hibernate.dao.EquipoDAO;
 import es.altair.hibernate.dao.EquipoDAOImpHibernate;
 import es.altair.hibernate.dao.JuegosDAO;
@@ -62,13 +64,12 @@ public class App
         				
         				break;
         			case 3:
-        				
+        				muestraEquipos();
+        				System.out.println("Introduce la id del Equipo a borrar: ");
+    					eDAO.delete(Leer.datoInt());
         				break;
         			case 4:
-        				List<Equipos> equipos = eDAO.listar();
-        				for (Equipos item : equipos) {
-        					System.out.println(item);
-        				}
+        				muestraEquipos();
         				break;
         				
         			}
@@ -102,13 +103,12 @@ public class App
         				
         				break;
         			case 3:
-        				
+        				muestraJugadores();
+        				System.out.println("Introduce la id del Jugador a borrar: ");
+    					juDAO.delete(Leer.datoInt());
         				break;
         			case 4:
-        				List<Equipos> equipos = eDAO.listar();
-        				for (Equipos item : equipos) {
-        					System.out.println(item);
-        				}
+        				muestraJugadores();
         				break;
         			}
         		}while(opcion1!=0);
@@ -141,13 +141,12 @@ public class App
         				
         				break;
         			case 3:
-        				
+        				muestraJuegos();
+        				System.out.println("Introduce la id del juego a borrar: ");
+    					jDAO.delete(Leer.datoInt());
         				break;
         			case 4:
-        				List<Equipos> equipos = eDAO.listar();
-        				for (Equipos item : equipos) {
-        					System.out.println(item);
-        				}
+        				muestraJuegos();
         				break;
         			}
         		}while(opcion1!=0);
@@ -177,16 +176,15 @@ public class App
         				tDAO.save(nuevoTipo());
         				break;
         			case 2:
-        				
+        				editTiposJuegos();
         				break;
         			case 3:
-        				
+        				muestratipos();
+    					System.out.println("Introduce la id del tipo de juego a borrar: ");
+    					tDAO.delete(Leer.datoInt());
         				break;
         			case 4:
-        				List<TiposJuego> tipos = tDAO.listar();
-        				for (TiposJuego item : tipos) {
-        					System.out.println(item);
-        				}
+        				muestratipos();
         				break;
         			}
         		}while(opcion1!=0);
@@ -220,6 +218,24 @@ public class App
 		}while(opcion<0||opcion>5);
 		return opcion;
 	}
+    private static void muestraEquipos() {
+    	List<Equipos> equipos = eDAO.listar();
+		for (Equipos item : equipos) {
+			System.out.println(item);
+			}
+		}
+    private static void muestraJugadores() {
+    	List<jugadores> jugadores = juDAO.listar();
+		for (jugadores item : jugadores) {
+			System.out.println(item);
+			}
+    }
+    private static void muestraJuegos() {
+    	List<Juegos> juegos = jDAO.listar();
+		for (Juegos item : juegos) {
+			System.out.println(item);
+		}
+    }
     private static TiposJuego nuevoTipo() {
     	TiposJuego tipo = new TiposJuego();
 		boolean validacion = false;
@@ -236,4 +252,26 @@ public class App
 
 		return tipo;
 	}
+    private static void muestratipos() {
+    	List<TiposJuego> tipos = tDAO.listar();
+		for (TiposJuego item : tipos) {
+			System.out.println(item);
+		}
+    }
+    private static void editTiposJuegos() {
+    	TiposJuego tipo = new TiposJuego();
+    	int id;
+    	boolean validacion = false;
+    	muestratipos();
+    	System.out.println("Dime la id del tipo de juego que quieres editar: ");
+    	id = Leer.datoInt();
+    	tipo.setId(id);
+    	do {
+			System.out.println("Introducir nuevo nombre al Tipo");
+			tipo.setNombreTipo(Leer.dato().trim());
+			validacion = Pattern.matches("[A-Za-z]+", tipo.getNombreTipo());
+		} while (validacion == false);
+    	
+    	tDAO.update(tipo);
+    }
 }

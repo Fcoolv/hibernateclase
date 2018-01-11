@@ -31,15 +31,15 @@ public class TipoDAOImpHibernate implements TipoDAO {
 
 	public List<TiposJuego> listar() {
 		
-		System.out.println("-----LISTADO DE EQUIPOS----");
-		List<TiposJuego> equipos = new ArrayList<TiposJuego>();
+		System.out.println("-----LISTADO DE TIPOSDEJUEGO----");
+		List<TiposJuego> tipos = new ArrayList<TiposJuego>();
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session sesion = sf.openSession();
 
 		try {
 
 			sesion.beginTransaction();
-			equipos = sesion.createQuery("FROM TiposJuego").list();
+			tipos = sesion.createQuery("FROM TiposJuego").list();
 			sesion.getTransaction().commit();
 
 		} catch (Exception e) {
@@ -48,18 +48,19 @@ public class TipoDAOImpHibernate implements TipoDAO {
 			sesion.close();
 		}
 
-		return equipos;
+		return tipos;
 
 	}
 	
 	
-	public boolean delete(int id) {
+	@SuppressWarnings("deprecation")
+	public boolean delete(int idtipo) {
 		SessionFactory sf = new Configuration().configure().buildSessionFactory();
 		Session sesion = sf.openSession();
 		
 		try {
 			sesion.beginTransaction();
-			sesion.createSQLQuery("DELETE FROM tiposJuego WHERE idTipo=:id").setParameter("id",id);
+			sesion.createSQLQuery("DELETE FROM tiposjuego WHERE idtipo = :idtipo").setParameter("idtipo",idtipo).executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error: No se pudo borrar el tipo de juego.");

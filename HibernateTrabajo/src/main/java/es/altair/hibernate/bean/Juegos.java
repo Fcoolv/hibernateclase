@@ -17,7 +17,7 @@ import javax.persistence.Table;
 public class Juegos implements Serializable{
 
 	@Id
-	private int id;
+	private int idJuegos;
 	private String Nombre;
 	
 	@ManyToOne
@@ -30,12 +30,12 @@ public class Juegos implements Serializable{
 	@ManyToMany(cascade=CascadeType.ALL,mappedBy="juegos")
 	private Set<Equipos> equipos = new HashSet<Equipos>();
 
-	public int getId() {
-		return id;
+	public int getIdJuegos() {
+		return idJuegos;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setIdJuegos(int idJuegos) {
+		this.idJuegos = idJuegos;
 	}
 
 	public String getNombre() {
@@ -71,18 +71,24 @@ public class Juegos implements Serializable{
 		this.equipos = equipos;
 	}
 
-	public Juegos(int id, String nombre, TiposJuego Tipo ,int anyoCreacion, String compayia) {
+	public Juegos() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Juegos(int idJuegos, String compayia , String nombre,int anyoCreacion,TiposJuego Tipo) {
 		super();
-		this.id = id;
-		this.Nombre = nombre;
-		this.tipo = Tipo;
-		this.anyoCreacion = anyoCreacion;
+		this.idJuegos = idJuegos;
 		this.Compayia = compayia;
+		this.Nombre = nombre;
+		this.anyoCreacion = anyoCreacion;
+		this.tipo = Tipo;
+		
+		
 	}
 
 	@Override
 	public String toString() {
-		return "Juegos [id=" + id + ", Nombre=" + Nombre + ", Tipo=" + tipo.getNombreTipo() + ", anyoCreacion=" + anyoCreacion
+		return "Juegos [idJuegos=" + idJuegos + ", Nombre=" + Nombre + ", Tipo=" + tipo.getNombreTipo() + ", anyoCreacion=" + anyoCreacion
 				+ ", Compayia=" + Compayia + "]";
 	}
 	

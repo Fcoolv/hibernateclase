@@ -59,7 +59,7 @@ public class EquipoDAOImpHibernate implements EquipoDAO {
 		
 		try {
 			sesion.beginTransaction();
-			sesion.createSQLQuery("DELETE FROM equipos WHERE idEquipo=:id").setParameter("id",id);
+			sesion.createSQLQuery("DELETE FROM equipos WHERE id=:id").setParameter("id",id).executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error: No se pudo borrar el equipo.");
