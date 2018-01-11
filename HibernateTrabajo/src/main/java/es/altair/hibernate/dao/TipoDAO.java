@@ -13,4 +13,6 @@ public void save(TiposJuego e);
 	public boolean update(TiposJuego e);
 	
 	public List<TiposJuego> listar();
+
+	public TiposJuego get(int id);
 }

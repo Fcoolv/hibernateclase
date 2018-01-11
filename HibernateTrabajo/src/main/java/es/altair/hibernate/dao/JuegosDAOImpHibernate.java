@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import es.altair.hibernate.bean.Equipos;
 import es.altair.hibernate.bean.Juegos;
 
 public class JuegosDAOImpHibernate implements JuegosDAO {
@@ -93,6 +94,29 @@ public class JuegosDAOImpHibernate implements JuegosDAO {
 		}
 		System.out.println("Se actualizo el juego seleccionado.");
 		return true;
+	}
+
+	public Juegos get(int id) {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session sesion = sf.openSession();
+		Juegos Juegos = new Juegos();
+		
+		
+		try {
+
+			sesion.beginTransaction();
+			
+			Juegos = (Juegos)sesion.createQuery("From Juegos Where idjuego = :id").setParameter("id", id).uniqueResult();
+			
+			sesion.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sesion.close();
+		}
+				
+		return Juegos;
 	}
 
 }

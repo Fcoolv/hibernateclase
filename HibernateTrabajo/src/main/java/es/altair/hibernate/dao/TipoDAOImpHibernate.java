@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-
+import es.altair.hibernate.bean.Juegos;
 import es.altair.hibernate.bean.TiposJuego;
 
 public class TipoDAOImpHibernate implements TipoDAO {
@@ -95,6 +95,29 @@ public class TipoDAOImpHibernate implements TipoDAO {
 		}
 		System.out.println("Se actualizo el tipo de juego seleccionado.");
 		return true;
+	}
+
+	public TiposJuego get(int id) {
+		SessionFactory sf = new Configuration().configure().buildSessionFactory();
+		Session sesion = sf.openSession();
+		TiposJuego tipos = new TiposJuego();
+		
+		
+		try {
+
+			sesion.beginTransaction();
+			
+			tipos = (TiposJuego)sesion.createQuery("From TiposJuego Where idTipo = :id").setParameter("id", id).uniqueResult();
+			
+			sesion.getTransaction().commit();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sesion.close();
+		}
+				
+		return tipos;
 	}
 
 

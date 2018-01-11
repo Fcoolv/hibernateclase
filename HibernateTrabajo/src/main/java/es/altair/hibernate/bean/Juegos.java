@@ -67,6 +67,14 @@ public class Juegos implements Serializable{
 		return equipos;
 	}
 
+	public TiposJuego getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(TiposJuego tipo) {
+		this.tipo = tipo;
+	}
+
 	public void setEquipos(Set<Equipos> equipos) {
 		this.equipos = equipos;
 	}
