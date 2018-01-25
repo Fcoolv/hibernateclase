@@ -23,9 +23,10 @@ public class Equipos implements Serializable{
 	private String pais;
 	
 	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(name="equipojuegos",
-	           joinColumns = {@JoinColumn(name="idEquipo")},
-	           inverseJoinColumns = {@JoinColumn(name="idJuego")}
+	@JoinTable(
+			name="equipojuegos",
+	           joinColumns = @JoinColumn(name="idEquipo"),
+	           inverseJoinColumns = @JoinColumn(name="idJuego")
 	)
 	private Set<Juegos> juegos = new HashSet<Juegos>();
 

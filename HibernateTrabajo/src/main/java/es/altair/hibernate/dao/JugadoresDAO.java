@@ -13,4 +13,8 @@ public void save(jugadores e);
 	public boolean update(jugadores e);
 	
 	public List<jugadores> listar();
+	
+	public jugadores get(int id);
+	
+	public void PaginacionJugadores(int pag);
 }

@@ -1,12 +1,15 @@
 package es.altair.hibernate.bean;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="equipojuegos")
 public class EquipoJuego {
-
+	
+	@Id
+	private int id;
 	
 	private int idJuego;
 	private int idEquipo;
@@ -15,8 +18,9 @@ public class EquipoJuego {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public EquipoJuego(int idJuego, int idEquipo) {
+	public EquipoJuego(int id,int idJuego, int idEquipo) {
 		super();
+		this.id = id;
 		this.idJuego = idJuego;
 		this.idEquipo = idEquipo;
 	}
@@ -44,7 +48,15 @@ public class EquipoJuego {
 
 	@Override
 	public String toString() {
-		return "EquipoJuego [idJuego=" + idJuego + ", idEquipo=" + idEquipo + "]";
+		return "EquipoJuego [" + id + "-- idJuego=" + idJuego + ", idEquipo=" + idEquipo + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

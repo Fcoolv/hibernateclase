@@ -27,7 +27,7 @@ public class Juegos implements Serializable{
 	private String anyoCreacion;
 	private String Compayia;
 	
-	@ManyToMany(cascade=CascadeType.ALL,mappedBy="juegos")
+	@ManyToMany(mappedBy="juegos")
 	private Set<Equipos> equipos = new HashSet<Equipos>();
 
 	public int getIdJuegos() {

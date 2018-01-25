@@ -59,7 +59,7 @@ public class JuegosDAOImpHibernate implements JuegosDAO {
 		
 		try {
 			sesion.beginTransaction();
-			sesion.createSQLQuery("DELETE FROM juegos WHERE idjuego=:id").setParameter("id",id).executeUpdate();
+			sesion.createSQLQuery("DELETE FROM juegos WHERE idJuegos=:id").setParameter("id",id).executeUpdate();
 		}catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("Error: No se pudo borrar el juego.");
@@ -106,7 +106,7 @@ public class JuegosDAOImpHibernate implements JuegosDAO {
 
 			sesion.beginTransaction();
 			
-			Juegos = (Juegos)sesion.createQuery("From Juegos Where idjuego = :id").setParameter("id", id).uniqueResult();
+			Juegos = (Juegos)sesion.createQuery("From Juegos Where idJuegos = :id").setParameter("id", id).uniqueResult();
 			
 			sesion.getTransaction().commit();
 

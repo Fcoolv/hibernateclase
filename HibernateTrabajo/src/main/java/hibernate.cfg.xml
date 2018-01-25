@@ -15,5 +15,6 @@
         <mapping class="es.altair.hibernate.bean.Equipos"/>
         <mapping class="es.altair.hibernate.bean.Juegos"/>
         <mapping class="es.altair.hibernate.bean.TiposJuego"/>
+        <mapping class="es.altair.hibernate.bean.EquipoJuego"/>
     </session-factory>
 </hibernate-configuration>

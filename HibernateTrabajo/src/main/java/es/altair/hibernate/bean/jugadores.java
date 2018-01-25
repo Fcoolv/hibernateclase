@@ -82,7 +82,7 @@ public class jugadores implements Serializable{
 	@Override
 	public String toString() {
 		return "jugadores [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", nickname=" + nickname
-				+ ", equipo=" + equipo + "]";
+				+ ", equipo=" + equipo.getNombre() + "]";
 	}
 
 	
