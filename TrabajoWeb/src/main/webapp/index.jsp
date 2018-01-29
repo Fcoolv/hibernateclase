@@ -1,80 +1,45 @@
-<html>
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to.fit=no">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Iniciar Sesion</title>
+        <meta name="description" content="Love Authority." />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+    <body>
+        <!--hero section-->
+        <section class="hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-8 mx-auto">
+                        <div class="card border-none">
+                            <div class="card-body">
+                                <div class="mt-4">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" id="email" value="" placeholder="Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control" id="password" value="" placeholder="Contraseña">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary float-right">Iniciar Sesion</button>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    <p class="content-divider center mt-4"><span>o</span></p>
+                                </div>
+                                <p class="text-center">
+                                    ¿No tienes cuenta aun? <a href="jsp/register.jsp">Registrate Ahora</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>
 
-<link rel="stylesheet" href=css/bootstrap.min.css>
-
-<link rel="stylesheet" href=css/font-awesome.min.css>
-<style type="text/css">
-.container:before {
-	content: "";
-	position: fixed;
-	left: 0;
-	right: 0;
-	z-index: -1;
-	display: block;
-	background-image: url(images/fondo2.gif);
-	background-size: cover;
-	width: 100%;
-	height: 100%;
-	-webkit-filter: blur(5px);
-	-moz-filter: blur(5px);
-	-o-filter: blur(5px);
-	-ms-filter: blur(5px);
-	filter: blur(3px);
-}
-
-.Centro {
-	margin: auto;
-	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
-}
-
-.Centro.Responsive {
-	width: 50%;
-	height: 50%;
-	min-width: 200px;
-	max-width: 400px;
-	padding: 40px;
-}
-
-.error {
-	color: red;
-	display: none;
-}
-</style>
-
-
-
-</head>
-<body>
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="Centro Responsive">
-				<form class="form-group" name="login" onsubmit="return false">
-					<h1 class="form-signin-heading text-muted">Inicio de Sesion</h1>
-					<input type="text" id="usu" class="form-control"
-						placeholder="Usuario" autofocus="autofocus"><span
-						class="error" id="usuerror"> Usuario incorrecto</span> <input
-						type="password" id="pass" class="form-control"
-						placeholder="Password"><span class="error" id="passerror">
-						Contraseña incorrecta</span> 
-						<br />
-					<button class="btn btn-lg btn-primary" onclick="sesion()">
-						Iniciar Sesion</button>
-					<button type="button" class="btn btn-default" onclick="location.href='jsp/registrarUsu.jsp'">Registrar</button>
-				</form>
-			</div>
-		</div>
-	</div>
-
-
-	<script src="js/jquery-3.2.1.slim.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/sesiones.js"></script>
-</body>
+    </body>
 </html>
