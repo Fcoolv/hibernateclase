@@ -31,7 +31,7 @@
                                     <p class="content-divider center mt-4"><span>o</span></p>
                                 </div>
                                 <p class="text-center">
-                                    ¿No tienes cuenta aun? <a href="jsp/register.jsp">Registrate Ahora</a>
+                                    ¿No tienes cuenta aun? <a href="register.jsp">Registrate Ahora</a>
                                 </p>
                             </div>
                         </div>
