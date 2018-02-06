@@ -44,7 +44,7 @@
                                 </div>
                                 
                                 <p class="text-center">
-                                    ¿Tienes ya alguna cuenta? <a href="../index.jsp">Inicia Sesion ahora</a>
+                                    ¿Tienes ya alguna cuenta? <a href="login.jsp">Inicia Sesion ahora</a>
                                 </p>
                             </div>
                         </div>
