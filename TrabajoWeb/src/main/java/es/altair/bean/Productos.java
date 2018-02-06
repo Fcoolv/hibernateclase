@@ -1,5 +1,6 @@
 package es.altair.bean;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,11 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="producto")
-public class Productos {
+public class Productos implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +22,7 @@ public class Productos {
 	private float precio;
 	private byte[] foto;
 
-	
+	@OneToMany(mappedBy="producto")
 	private Set<Ticket> ticket = new HashSet<Ticket>();
 	
 	public Productos() {
